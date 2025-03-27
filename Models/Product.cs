@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-namespace MyApi.Models
+namespace simpleApiRestDesafioEy.Models
 {
     public class Product
     {
