@@ -40,7 +40,7 @@ namespace MyApi.Controllers
         {
             product.Id = Products.Count + 1;
             Products.Add(product);
-            return CreatedAtAction(nameof(GetProduct), new { id = product.Id, });
+            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
 
         [HttpPut("{id}")]
