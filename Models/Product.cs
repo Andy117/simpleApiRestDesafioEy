@@ -6,7 +6,8 @@ namespace MyApi.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "El nombre del producto es obligatorio")]
         public required string Name { get; set; }
-        [StringLength(100, ErrorMessage = "El precio no puede ser mayor a 100 caracteres", MinimumLength = 1), Required(ErrorMessage = "El precio es obligatorio...")]
+        [Required(ErrorMessage = "El precio es obligatorio...")]
+        [Range(1, double.MaxValue, ErrorMessage = "El precio debe ser mayor que 0")]
         public required decimal Price { get; set; }
     }
 }
