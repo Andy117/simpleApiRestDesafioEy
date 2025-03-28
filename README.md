@@ -47,3 +47,7 @@ Para utilizar la API debes seguir los siguientes pasos:
 3. Ya puedes comenzar a utilizar la API :D
 - Página principal de Swagger para la documentación
     ![Screenshot de la página principal de Swagger.](/assets/ssSwagger.png)
+
+### Agradezco el tiempo que se toman para leer esta pequeña documentación, y también por la oportunidad de ser tomado en cuenta para la posición :D bendiciones 🙏
+
+~Anderson Velásquez 2025~
