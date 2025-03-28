@@ -8,7 +8,7 @@ namespace simpleApiRestDesafioEy.Services
         IEnumerable<Product> GetProducts();
         Product? GetProduct(int id);
         Product CreateProduct(Product product);
-        bool UpdateProduct(int id, Product product);
+        bool UpdateProduct(Product product);
         bool DeleteProduct(int id);
     }
 }
