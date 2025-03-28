@@ -23,9 +23,9 @@ namespace simpleApiRestDesafioEy.Services
             return product;
         }
 
-        public bool UpdateProduct(int id, Product product)
+        public bool UpdateProduct(Product product)
         {
-            var existing = _products.FirstOrDefault(p => p.Id == id);
+            var existing = _products.FirstOrDefault(p => p.Id == product.Id);
             if (existing == null) return false;
 
             existing.Name = product.Name;
