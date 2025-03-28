@@ -31,3 +31,4 @@ C:\Users\ander\workspace\simpleApiRestDesafioEy\obj\Debug\net8.0\refint\simpleAp
 C:\Users\ander\workspace\simpleApiRestDesafioEy\obj\Debug\net8.0\simpleApiRestDesafioEy.pdb
 C:\Users\ander\workspace\simpleApiRestDesafioEy\obj\Debug\net8.0\simpleApiRestDesafioEy.genruntimeconfig.cache
 C:\Users\ander\workspace\simpleApiRestDesafioEy\obj\Debug\net8.0\ref\simpleApiRestDesafioEy.dll
+C:\Users\ander\workspace\simpleApiRestDesafioEy\obj\Debug\net8.0\simpleApiRestDesafioEy.sourcelink.json
