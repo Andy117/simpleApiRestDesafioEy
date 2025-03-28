@@ -30,17 +30,30 @@ namespace simpleApiRestDesafioEy.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Product> CreateProduct(Product product)
+        public ActionResult<Product> CreateProduct([FromBody] CreateProductDto dto)
         {
+            var product = new Product
+            {
+                Name = dto.Name,
+                Price = dto.Price
+            };
             var createdProduct = _productService.CreateProduct(product);
             return CreatedAtAction(nameof(GetProduct), new { id = createdProduct.Id }, createdProduct);
 
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateProduct(int id, Product product)
+        public IActionResult UpdateProduct(int id, [FromBody] UpdateProductDto dto)
         {
-            return _productService.UpdateProduct(id, product) ? NoContent() : NotFound();
+            var existingProduct = _productService.GetProduct(id);
+            if (existingProduct == null)
+                return NotFound();
+
+            existingProduct.Name = dto.Name;
+            existingProduct.Price = dto.Price;
+
+            _productService.UpdateProduct(existingProduct);
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
