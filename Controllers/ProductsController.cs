@@ -30,8 +30,16 @@ namespace simpleApiRestDesafioEy.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<Product> CreateProduct([FromBody] CreateProductDto dto)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var product = new Product
             {
                 Name = dto.Name,
@@ -43,23 +51,62 @@ namespace simpleApiRestDesafioEy.Controllers
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult UpdateProduct(int id, [FromBody] UpdateProductDto dto)
         {
             var existingProduct = _productService.GetProduct(id);
             if (existingProduct == null)
-                return NotFound();
+            {
+                return NotFound(new
+                {
+                    success = false,
+                    message = $"Producto con ID {id} no encontrado..."
+                });
+            }
 
             existingProduct.Name = dto.Name;
             existingProduct.Price = dto.Price;
 
-            _productService.UpdateProduct(existingProduct);
-            return NoContent();
+            var updatedProduct = _productService.UpdateProduct(existingProduct);
+            if (!updatedProduct)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = "Error interno al actualizar el producto"
+                });
+            }
+
+            return Ok(new
+            {
+                success = true,
+                message = $"Producto con ID {id} actualizado correctamente",
+                Product = existingProduct
+            });
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult DeleteProduct(int id)
         {
-            return _productService.DeleteProduct(id) ? NoContent() : NotFound();
+            var deleteResult = _productService.DeleteProduct(id);
+
+            if (!deleteResult)
+            {
+                return NotFound(new
+                {
+                    success = false,
+                    message = $"Producto con ID {id} no encontrado"
+                });
+            }
+
+            return Ok(new
+            {
+                success = true,
+                message = $"Producto con ID {id} eliminado correctamente"
+            });
         }
     }
 }
