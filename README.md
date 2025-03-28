@@ -5,3 +5,28 @@ en su empresa :D
 ## ¿En que consiste el desafio?
 >El presente desafio consiste en desarrollar una **REST API** básica en *.NET Core* que
 >realice operaciones *CRUD* sobre un recurso simple <ins>(en mi caso serán, "Productos")</ins>
+
+## Funciones de la API
+1. La API fue desarrollada utilizando .NET Core en su versión _8_
+2. El controlador implementa los siguientes endpoints:
+   - GET /api/Products -> Obtiene todos los elementos de la lista
+   - GET /api/Products/{id} -> Obtiene un elemento por su ID
+   - POST /api/Products -> Crea un nuevo elemento
+   - PUT /api/Products/{id} -> Actualiza un elemento por su ID
+   - DELETE /api/Products/{id} -> Elimina un elemento por su ID
+3. La API _no_ está conectada a ninguna base de datos para guardar información, la información está almacenada en una lista en memoria (List<Product>).
+
+## Extras
+1. Se implementó Swagger para la documentación de la API
+   - Página principal
+    ![Screenshot de la página principal de Swagger.](/assets/ssSwagger.png)
+   - Testeando el endpoint GET
+    ![Screenshot del método GET obteniendo los objetos almacenados en la lista.](/assets/ssSwaggerGet.png)
+   - Testeando el endpoint DELETE
+    ![Screenshot del método DELETE obteniendo mensaje de eliminación exitosa.](/assets/ssSwaggerDelete.png)
+2. Se utilizó el patrón de diseño __Dependency Injection__ en el controlador.
+3. Se incluyeron validaciones básicas en el modelo
+   - Nombre del producto obligatorio
+    ![Screenshot mostrando error al no ingresar el nombre del producto.](/assets/ssRequiredName.png)
+   - Precio del producto mayor a 0 (cero)
+    ![Screenshot mostrando error al ingresar precio menor a 0 (cero)](/assets/ssNoZeroPrice.png)
