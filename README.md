@@ -30,3 +30,20 @@ en su empresa :D
     ![Screenshot mostrando error al no ingresar el nombre del producto.](/assets/ssRequiredName.png)
    - Precio del producto mayor a 0 (cero)
     ![Screenshot mostrando error al ingresar precio menor a 0 (cero)](/assets/ssNoZeroPrice.png)
+
+## Utilización de la API
+Para utilizar la API debes seguir los siguientes pasos:
+
+> [!IMPORTANT]
+> Para el correcto funcionamiento asegurate de tener instalado el SDK de .NET, te recomiendo seguir esta guía la cual es de proveida por Microsoft: https://learn.microsoft.com/es-es/training/modules/install-configure-visual-studio-code/
+
+1. Clonar el repositorio con el siguiente comando:
+`git clone https://github.com/Andy117/simpleApiRestDesafioEy.git`
+2. Debes abrir la términal y ejecutar los siguientes comandos:
+   - Primero debes compilar el proyecto con: `dotenv build`
+   - Luego ya puedes ejecutar el proyecto con: `dotenv run`
+   > [!TIP]
+   > También puedes utilizar _watch_ para que no tengas que reiniciar la aplicación de forma manual cuando realices un cambio, para ello ejecuta el siguiente comando: `dotenv watch -lp https` (recomiendo esta opción)
+3. Ya puedes comenzar a utilizar la API :D
+- Página principal de Swagger para la documentación
+    ![Screenshot de la página principal de Swagger.](/assets/ssSwagger.png)
